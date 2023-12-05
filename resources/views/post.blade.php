@@ -11,8 +11,7 @@
 </head>
 <body>
 <article>
-    <h1><a href="/post">My first Post</a></h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet blanditiis deleniti dolorem ducimus error illo inventore ipsum, iusto labore maxime modi mollitia nemo nesciunt non reprehenderit sapiente sint suscipit totam?</p>
+ <?= $post ?>
 </article>
 
 

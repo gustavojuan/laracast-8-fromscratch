@@ -11,15 +11,15 @@
 </head>
 <body>
     <article>
-        <h1><a href="/post">My first Post</a></h1>
+        <h1><a href="/posts/my-first-post">My first Post</a></h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet blanditiis deleniti dolorem ducimus error illo inventore ipsum, iusto labore maxime modi mollitia nemo nesciunt non reprehenderit sapiente sint suscipit totam?</p>
     </article>
     <article>
-        <h1><a href="/post">My Second Post</a></h1>
+        <h1><a href="/posts/my-second-post">My Second Post</a></h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet blanditiis deleniti dolorem ducimus error illo inventore ipsum, iusto labore maxime modi mollitia nemo nesciunt non reprehenderit sapiente sint suscipit totam?</p>
     </article>
     <article>
-        <h1><a href="/post">My third Post</a></h1>
+        <h1><a href="/posts/my-third-post">My third Post</a></h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet blanditiis deleniti dolorem ducimus error illo inventore ipsum, iusto labore maxime modi mollitia nemo nesciunt non reprehenderit sapiente sint suscipit totam?</p>
     </article>
 
