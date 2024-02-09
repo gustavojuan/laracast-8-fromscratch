@@ -18,9 +18,14 @@ Route::get('/', function () {
     return view('posts', ['posts' =>  Post::all()]);
 });
 
+// Route Model Binding
+//{post} => $post
 
-Route::get('/posts/{id}', function ($id) {
-        return view('post', [
-        'post' =>  Post::findOrFail($id)
-    ]);
+//Route::get('/posts/{post}', function (Post $post) {
+//        return view('post', compact('post'));
+//});
+
+
+Route::get('/posts/{post:slug}', function (Post $post) {
+    return view('post', compact('post'));
 });
