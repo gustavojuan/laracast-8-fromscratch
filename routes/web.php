@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 Route::get('posts/{post:slug}', function (Post $post) {
     return view('post',[
-        'posts'=> Post::all(),
+        'post'=> $post,
         'categories'=> Category::all()
     ]);
 });
