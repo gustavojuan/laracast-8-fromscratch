@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +12,17 @@ class Post extends Model
 
     protected $guarded = [];
 
-    protected $with = ['category','author'];
+    protected $with = ['category', 'author'];
+
+
+    public function scopeFilter($query, array $filters)
+    {
+
+        $query->when($filters['search'] ?? false, fn ($query, $search) =>
+            $query
+                ->where('title', 'like', '%' . $search . '%')
+                ->orWhere('body', 'like', '%' . $search . '%'));
+    }
 
     public function category()
     {
@@ -20,9 +31,6 @@ class Post extends Model
 
     public function author()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
-
-
-
 }
