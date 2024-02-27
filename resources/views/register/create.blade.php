@@ -6,67 +6,62 @@
 
             <form method="POST" action="/register" class="mt-10">
 
-                 @csrf
+                @csrf
 
                 <div class="mb-6">
                     <label for="name" class="block uppercase text-gray-700 text-xs font-bold mb-2">Name</label>
-                    <input
-                        id="name"
-                        type="text"
-                        class="w-full border border-gray-400 p-2"
-                        name="name"
-                        value="{{ old('name') }}"
-                        required
-                        autocomplete="name"
-                        autofocus>
+                    <input id="name" type="text" class="w-full border border-gray-400 p-2" name="name"
+                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                    @error('name')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
                     <label for="username" class="block uppercase text-gray-700 text-xs font-bold mb-2">Username</label>
-                    <input
-                        id="username"
-                        type="text"
-                        class="w-full border border-gray-400 p-2"
-                        name="username"
-                        value="{{ old('username') }}"
-                        required
-                        autocomplete="username"
-                        autofocus>
+                    <input id="username" type="text" class="w-full border border-gray-400 p-2" name="username"
+                        value="{{ old('username') }}" required autocomplete="username" autofocus>
+
+                    @error('username')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
                     <label for="email" class="block uppercase text-gray-700 text-xs font-bold mb-2">Email</label>
-                    <input
-                        id="email"
-                        type="email"
-                        class="w-full border border-gray-400 p-2"
-                        name="email"
-                        value="{{ old('email') }}"
-                        required
-                        autocomplete="email"
-                        autofocus>
+                    <input id="email" type="email" class="w-full border border-gray-400 p-2" name="email"
+                        value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                    @error('email')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
                     <label for="password" class="block uppercase text-gray-700 text-xs font-bold mb-2">Password</label>
-                    <input
-                        id="password"
-                        type="password"
-                        class="w-full border border-gray-400 p-2"
-                        name="password"
-                        value="{{ old('password') }}"
-                        required
-                        autocomplete="password"
-                        autofocus>
+                    <input id="password" type="password" class="w-full border border-gray-400 p-2" name="password"
+                        value="{{ old('password') }}" required autocomplete="password" autofocus>
+
+                    @error('password')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
-                   <button type="submit"
-                        class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">
+                    <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">
                         Submit
-                   </button>
+                    </button>
                 </div>
 
+
+                @if ($errors->any())
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li class="text-red-500 text-xs">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
             </form>
         </main>
     </section>
