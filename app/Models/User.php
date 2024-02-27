@@ -39,6 +39,20 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    //Acccesor
+
+    // public function getUsernameAttribute($username)
+    // {
+    //     return  ucwords($username);
+    // }
+
+    //Mutator
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);
