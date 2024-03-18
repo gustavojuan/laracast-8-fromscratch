@@ -21,7 +21,7 @@
                 @auth
                     <span class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }} </span>
 
-                    <form action="/logout" method="POST" class="text-xs text-blue-500 font-semibold ">
+                    <form action="/logout" method="POST" class="ml-6  text-xs text-blue-500 font-semibold ">
                         @csrf
 
                         <button type="submit">Log Out</button>
