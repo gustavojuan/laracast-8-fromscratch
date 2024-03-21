@@ -12,10 +12,27 @@ use Illuminate\Support\Facades\Route;
 use PHPUnit\Metadata\PostCondition;
 
 
+Route::get('ping', function () {
+    $mailchimp = new MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us22'
+    ]);
+
+    $response = $mailchimp->lists->addListMember('55107dc6aa', [
+        'email_address' => 'gustavojuandev@gmail.com',
+        'status' => 'subscribed'
+    ]);
+
+
+    ddd($response);
+});
+
 Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
-Route::post('posts/{post:slug}/comments', [PostCommentsController::class,'store']);
+Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store']);
 
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
